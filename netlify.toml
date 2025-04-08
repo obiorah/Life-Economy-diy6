@@ -1,0 +1,19 @@
+[build]
+  # Command to build the site
+  command = "npm run build"
+
+  # Directory containing the deploy-ready assets (client build output)
+  publish = "build/client"
+
+[functions]
+  # Directory containing serverless functions (server build output)
+  directory = "build/server"
+
+# Add this redirects section
+[[redirects]]
+  # Match any path that isn't an existing file
+  from = "/*"
+  # Serve the main index.html file
+  to = "/index.html"
+  # Return a 200 status code to let the client-side router handle it
+  status = 200
